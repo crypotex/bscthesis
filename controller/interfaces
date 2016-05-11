@@ -1,0 +1,18 @@
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet dhcp
+	
+auto vlan10
+iface vlan10 inet static
+	address 192.168.2.1
+	netmask 255.255.255.0
+	vlan-raw-device eth0
+
+auto vlan2
+iface vlan2 inet manual
+	vlan-raw-device eth0
+	up ip link set dev $IFACE up
+	down ip link set dev $IFACE down
