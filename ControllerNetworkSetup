@@ -10,6 +10,8 @@ Host setup for networking
 # ifup vlan10
 # ifup vlan2
 
+Configure vlan10 routing from controller node. All communication that is not insde 192.168.2.0/24 subnet (Vlan10), will have to go through controller.
+
 # sysctl net.ipv4.conf.all.forwarding=1
 # sysctl net.ipv4.conf.default.forwarding=1
 # echo "# Allow ipv4 forwarding " >> /etc/sysctl.conf 
