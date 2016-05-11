@@ -27,7 +27,7 @@ will have to go through controller.
 # iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 # iptables-save > /etc/firewall.conf
 # iptables-restore < /etc/firewall.conf 
-# echo '#!/bin/bash'
+# echo '\#!/bin/bash'
 # echo 'iptables-restore < /etc/firewall.conf' > /etc/network/if-up.d/iptables
 # chmod u+x /etc/network/if-up.d/iptables 
 # /etc/network/if-up.d/iptables 
