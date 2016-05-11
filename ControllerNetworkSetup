@@ -1,0 +1,33 @@
+
+Host setup for networking
+# - means root
+
+# apt-get install vlan
+# modprobe 8021q
+# echo "8021q" >> /etc/modules
+# nano /etc/network/interfaces
+# nano /etc/hosts
+# ifup vlan10
+# ifup vlan2
+
+# sysctl net.ipv4.conf.all.forwarding=1
+# sysctl net.ipv4.conf.default.forwarding=1
+# echo "# Allow ipv4 forwarding " >> /etc/sysctl.conf 
+# echo "net.ipv4.conf.default.forwarding=1" >> /etc/sysctl.conf 
+# echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf 
+# sysctl -w net.ipv4.ip_forward=1
+
+# iptables-save
+# iptables -A FORWARD -i vlan10 -o eth0 -j ACCEPT
+# iptables -A FORWARD -i eth0 -o vlan10 -j ACCEPT
+# iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+# iptables-save > /etc/firewall.conf
+# iptables-restore < /etc/firewall.conf 
+# echo '#!/bin/bash'
+# echo 'iptables-restore < /etc/firewall.conf' > /etc/network/if-up.d/iptables
+# chmod u+x /etc/network/if-up.d/iptables 
+# /etc/network/if-up.d/iptables 
+
+
+
+
