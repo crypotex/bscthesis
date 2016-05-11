@@ -1,0 +1,7 @@
+127.0.0.1	localhost
+#controller (itself)
+192.168.2.1	controller
+
+#Compute nodes
+192.168.2.10	compute1
+192.168.2.11	compute2
