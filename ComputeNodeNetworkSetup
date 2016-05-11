@@ -1,0 +1,8 @@
+Compute node setup 
+# - Run command as root
+
+# apt-get install vlan
+# modprobe 8021q
+# echo "8021q" >> /etc/modules
+# nano /etc/network/interfaces
+# nano /etc/hosts
